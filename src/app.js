@@ -5,6 +5,7 @@ const { geocode } = require('./utils/geocode')
 const { forecast } = require('./utils/forecast')
 
 const app = express()
+const PORT = process.env.PORT || 3000
 
 // Define paths for express condifuration
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -96,6 +97,6 @@ app.get('/help', helpPage)
 app.get('/help/*', helpNotFound)
 app.get('*', notFoundPage)
 
-app.listen(3000, () => {
-  console.log('Server running...')
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`)
 })
